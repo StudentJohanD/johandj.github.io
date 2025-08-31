@@ -1,4 +1,3 @@
-# johandj.github.io
 # Johan Jiménez
 Industrial Engineering Student | Research Assistant | Peer Tutor
 
