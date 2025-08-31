@@ -6,6 +6,6 @@ Currently pursuing a Bachelor’s in Industrial Engineering at Universidad del N
 Passionate about research, education, and process improvement.
 
 ## Links
-- [LinkedIn](https://linkedin.com/in/tuusuario)
+- [LinkedIn]([https://linkedin.com/in/tuusuario](https://www.linkedin.com/in/johan-jim%C3%A9nez-067257374/))
 - [GitHub](https://github.com/tuusuario)
 - [Email](mailto:tuemail@ejemplo.com)
