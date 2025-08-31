@@ -1,77 +1,375 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Johan Jiménez | Portfolio</title>
   <style>
-    body { 
-      font-family: Arial, sans-serif; 
-      margin: 40px; 
-      background: #f4f6f8; 
-      color: #333; 
-      line-height: 1.6;
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #242a31;
+      --muted: #5d6b7a;
+      --primary: #2563eb;
+      --accent: #0ea5e9;
+      --border: #e5e7eb;
+      --chip: #eef2ff;
+      --good: #10b981;
+      --shadow: 0 8px 24px rgba(15, 23, 42, .08);
     }
-    h1 { 
-      color: #2c3e50; 
-      font-size: 2.5em;
-      margin-bottom: 5px;
+
+    .dark {
+      --bg: #0b1220;
+      --card: #0f172a;
+      --text: #e5ecfa;
+      --muted: #9fb0c6;
+      --primary: #60a5fa;
+      --accent: #38bdf8;
+      --border: #1e293b;
+      --chip: #1e293b;
+      --good: #34d399;
+      --shadow: 0 8px 24px rgba(0,0,0,.45);
     }
-    h2 {
-      color: #34495e;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 5px;
+
+    * { box-sizing: border-box }
+    html, body { height: 100% }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.6;
     }
-    a { 
-      color: #0073e6; 
-      text-decoration: none; 
-      font-weight: bold;
+
+    .container {
+      max-width: 1100px; margin: 40px auto; padding: 0 20px;
     }
-    a:hover { text-decoration: underline; }
-    .section { margin-bottom: 30px; }
-    .contact-links a {
-      margin-right: 15px;
-    }
-    ul { 
-      padding-left: 20px; 
-    }
-    .header-subtitle {
-      font-size: 1.2em; 
-      color: #555;
-      margin-bottom: 20px;
-    }
+
+    header.hero { display: grid; grid-template-columns: 96px 1fr auto; gap: 20px; align-items: center; margin-bottom: 24px; }
+    .avatar { width: 96px; height: 96px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--primary)); display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 28px; box-shadow: var(--shadow); }
+    .title h1 { margin: 0 0 6px; font-size: clamp(28px, 4vw, 40px); letter-spacing: .3px }
+    .subtitle { margin: 0; color: var(--muted); font-size: 16px }
+    .actions { display: flex; gap: 10px }
+
+    .btn { appearance: none; border: 1px solid var(--border); background: var(--card); color: var(--text); padding: 10px 14px; border-radius: 12px; cursor: pointer; font-weight: 600; box-shadow: var(--shadow); transition: transform .06s ease, border-color .2s ease; }
+    .btn:hover { transform: translateY(-1px); border-color: var(--accent); }
+    .btn.primary { background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; border-color: transparent }
+
+    .grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 22px; align-items: start }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr } header.hero { grid-template-columns: 72px 1fr auto } .avatar { width:72px;height:72px;font-size:22px } }
+
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px; box-shadow: var(--shadow); }
+    .card h2 { margin: 0 0 10px; font-size: 18px; letter-spacing: .2px }
+    .divider { height: 1px; background: var(--border); margin: 12px 0 }
+
+    /* Secciones específicas */
+    .contact a { display: inline-flex; align-items: center; gap: 8px; margin-right: 14px; text-decoration: none; font-weight: 700; color: var(--primary) }
+    .contact a:hover { text-decoration: underline }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px }
+    .chip { background: var(--chip); border: 1px solid var(--border); padding: 6px 10px; border-radius: 999px; font-size: 13px; font-weight: 600 }
+
+    .timeline { display: grid; gap: 14px }
+    .edu-item, .vol-item { display: grid; grid-template-columns: 44px 1fr; gap: 12px }
+    .logo { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-weight: 800; color: #fff; box-shadow: var(--shadow); }
+    .logo.uninorte { background: #9b1c2e }
+    .logo.sena { background: #13a451 }
+    .logo.comba { background: #1f2937 }
+
+    .item-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline }
+    .item-title { font-weight: 800 }
+    .item-meta { color: var(--muted); font-size: 13px }
+
+    .badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; padding: 4px 8px; border-radius: 999px; border: 1px solid var(--border); background: var(--chip) }
+
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px }
+    .skill-row { display: grid; gap: 6px }
+    .meter { height: 8px; background: var(--bg); border: 1px solid var(--border); border-radius: 999px; position: relative; overflow: hidden }
+    .meter > span { position: absolute; inset: 0; width: var(--val, 60%); background: linear-gradient(90deg, var(--primary), var(--accent)); }
+
+    .lang { display: grid; grid-template-columns: 1fr auto; align-items: center }
+    .lang small { color: var(--muted) }
+
+    .list { margin: 0; padding-left: 18px }
+
+    footer { color: var(--muted); text-align: center; font-size: 13px; margin: 24px 0 8px }
   </style>
 </head>
 <body>
-  <h1>Johan Jiménez</h1>
-  <p class="header-subtitle">Industrial Engineering Student | Research Assistant | Peer Tutor</p>
-  
-  <div class="section">
-    <h2>About Me</h2>
-    <p>
-      Hello! I'm Johan, currently pursuing a Bachelor’s in Industrial Engineering at 
-      <strong>Universidad del Norte</strong> (2023–2028).  
-      I’m passionate about teaching, research, and process improvement.
-    </p>
+  <div class="container">
+    <header class="hero">
+      <div class="avatar" aria-hidden="true">JJ</div>
+      <div class="title">
+        <h1>Johan Jiménez</h1>
+        <p class="subtitle">Est. Ingeniería Industrial · Asistente de Investigación · Tutor Par</p>
+        <p class="contact">
+          <a href="https://www.linkedin.com/in/johan-jim%C3%A9nez-067257374/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/johandj" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:youremail@example.com">Email</a>
+        </p>
+      </div>
+      <div class="actions">
+        <button class="btn" id="toggle">🌗 Modo</button>
+        <a class="btn primary" href="#contacto">Contacto</a>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- Columna izquierda -->
+      <section class="card">
+        <h2>Sobre mí</h2>
+        <p>
+          Actualmente curso el <strong>pregrado en Ingeniería Industrial</strong> (Universidad del Norte, 2023–2028). Me interesan la mejora de procesos, la logística y la toma de decisiones basada en datos. Complemento mi formación con docencia entre pares y apoyo a investigación.
+        </p>
+        <div class="chips" aria-label="fortalezas">
+          <span class="chip">Análisis de Datos</span>
+          <span class="chip">Gestión de Operaciones</span>
+          <span class="chip">Mejora Continua</span>
+          <span class="chip">Liderazgo</span>
+          <span class="chip">Apoyo a Investigación</span>
+          <span class="chip">Tutoría Académica</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Proyectos</h2>
+        <ul class="list">
+          <li>Fundamentos de la Investigación IAP – ANEIAP</li>
+          <li>Comité 30 años – Coordinación financiera (ANEIAP)</li>
+          <li>Service Learning aplicado a cursos de inglés – CEDU</li>
+          <li>Programa de Tutorías de Precálculo – CREE</li>
+        </ul>
+      </section>
+
+      <!-- Educación -->
+      <section class="card" aria-labelledby="edu">
+        <h2 id="edu">Educación</h2>
+        <div class="timeline">
+          <article class="edu-item">
+            <div class="logo uninorte" title="Universidad del Norte">U<span aria-hidden="true"></span></div>
+            <div>
+              <div class="item-head">
+                <span class="item-title">Universidad del Norte</span>
+                <span class="badge">BE · Ingeniería Industrial</span>
+                <span class="item-meta">Ene 2023 – Mar 2028 · En curso</span>
+              </div>
+              <p>
+                Enfoque en gestión de operaciones, logística, optimización de procesos y decisiones basadas en datos. Participación en investigación académica, evaluación entre pares y grupos estudiantiles, fortaleciendo liderazgo, organización y trabajo en equipo.
+              </p>
+              <div class="chips">
+                <span class="chip">CEDU · Asistente de investigación</span>
+                <span class="chip">CREE · Tutor par</span>
+                <span class="chip">Bourbaki · Finanzas</span>
+                <span class="chip">ANEIAP · Proyectos & eventos</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="edu-item">
+            <div class="logo sena" title="SENA">S</div>
+            <div>
+              <div class="item-head">
+                <span class="item-title">Servicio Nacional de Aprendizaje (SENA)</span>
+                <span class="badge">Técnico · Sistemas</span>
+                <span class="item-meta">Mar 2021 – Dic 2022</span>
+              </div>
+              <p>
+                Formación técnica en hardware, software, redes y soporte TI. Desarrollé atención al detalle, pensamiento analítico y habilidades prácticas en tecnología.
+              </p>
+              <div class="chips">
+                <span class="chip">Soporte Técnico</span>
+                <span class="chip">Hardware & Redes</span>
+                <span class="chip">Solución de problemas</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="edu-item">
+            <div class="logo comba" title="Centro de Formación Comfamiliar Atlántico">C</div>
+            <div>
+              <div class="item-head">
+                <span class="item-title">Centro de Formación Combarranquilla</span>
+                <span class="badge">Certificado · Asistencia Financiera y Contable</span>
+                <span class="item-meta">Mar 2021 – May 2023</span>
+              </div>
+              <p>
+                Entrenamiento en contabilidad, reportes financieros, nómina y herramientas administrativas aplicadas a la toma de decisiones.
+              </p>
+              <div class="chips">
+                <span class="chip">Contabilidad</span>
+                <span class="chip">Reportes & Nómina</span>
+                <span class="chip">Gestión Administrativa</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Licencias y certificaciones -->
+      <section class="card">
+        <h2>Licencias & Certificaciones</h2>
+        <ul class="list">
+          <li><strong>Gestión de SG-SST</strong> – SENA (Abr 2022)
+            <div class="chips" style="margin-top:6px">
+              <span class="chip">Seguridad Ocupacional</span>
+              <span class="chip">Gestión del Riesgo</span>
+              <span class="chip">SG-SST</span>
+            </div>
+          </li>
+          <li><strong>International Tutor Training Program Certification</strong> – CRLA (Sep 2023 – Dic 2024)
+            <div class="chips" style="margin-top:6px">
+              <span class="chip">Tutoría</span>
+              <span class="chip">Comunicación</span>
+              <span class="chip">Resolución Creativa de Problemas</span>
+            </div>
+          </li>
+          <li><strong>Auditoría Interna de Calidad ISO 9001</strong> – SENA
+            <div class="chips" style="margin-top:6px">
+              <span class="chip">Calidad</span>
+              <span class="chip">Mejora Continua</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Voluntariado / Experiencia estudiantil -->
+      <section class="card">
+        <h2>Voluntariado & Liderazgo</h2>
+        <div class="timeline">
+          <article class="vol-item">
+            <div class="logo uninorte">U</div>
+            <div>
+              <div class="item-head">
+                <span class="item-title">Tutor Par – CREE</span>
+                <span class="item-meta">Jul 2023 – Presente</span>
+              </div>
+              <p>
+                Apoyo en matemáticas, precálculo y cálculo aplicado para estudiantes de la Escuela de Negocios, fortaleciendo pensamiento analítico y confianza mediante acompañamiento personalizado.
+              </p>
+            </div>
+          </article>
+          <article class="vol-item">
+            <div class="logo uninorte">U</div>
+            <div>
+              <div class="item-head">
+                <span class="item-title">Asistente de Investigación – CEDU</span>
+                <span class="item-meta">Dic 2024 – Presente</span>
+              </div>
+              <p>
+                Soporte a proyectos del Centro para la Enseñanza y el Aprendizaje: diseño de investigación, análisis de datos y redacción académica orientada a innovación educativa.
+              </p>
+            </div>
+          </article>
+          <article class="vol-item">
+            <div class="logo" style="background:#0f766e">A</div>
+            <div>
+              <div class="item-head">
+                <span class="item-title">Líder de Proyecto – ANEIAP</span>
+                <span class="item-meta">Mar 2025 – Presente</span>
+              </div>
+              <p>
+                Coordinación de proyectos académicos y eventos para el desarrollo estudiantil en ingeniería industrial: planificación, presupuestos y trabajo colaborativo.
+              </p>
+            </div>
+          </article>
+          <article class="vol-item">
+            <div class="logo" style="background:#7c3aed">B</div>
+            <div>
+              <div class="item-head">
+                <span class="item-title">Coordinador Financiero – Grupo Bourbaki</span>
+                <span class="item-meta">Feb 2025 – Presente</span>
+              </div>
+              <p>
+                Gestión de recursos, apoyo a organización de eventos y promoción de iniciativas académicas en un semillero de matemáticas.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Habilidades -->
+      <section class="card">
+        <h2>Habilidades</h2>
+        <div class="skills-grid">
+          <div class="skill-row">
+            <strong>Data Analysis</strong>
+            <div class="meter" title="Nivel estimado"><span style="--val: 75%"></span></div>
+          </div>
+          <div class="skill-row">
+            <strong>Operations Management</strong>
+            <div class="meter"><span style="--val: 70%"></span></div>
+          </div>
+          <div class="skill-row">
+            <strong>Continuous Improvement</strong>
+            <div class="meter"><span style="--val: 72%"></span></div>
+          </div>
+          <div class="skill-row">
+            <strong>Leadership</strong>
+            <div class="meter"><span style="--val: 65%"></span></div>
+          </div>
+          <div class="skill-row">
+            <strong>Research Support</strong>
+            <div class="meter"><span style="--val: 70%"></span></div>
+          </div>
+          <div class="skill-row">
+            <strong>Academic Support & Teaching</strong>
+            <div class="meter"><span style="--val: 78%"></span></div>
+          </div>
+          <div class="skill-row">
+            <strong>Financial Accounting & Reporting</strong>
+            <div class="meter"><span style="--val: 68%"></span></div>
+          </div>
+          <div class="skill-row">
+            <strong>Occupational Safety (SG-SST)</strong>
+            <div class="meter"><span style="--val: 60%"></span></div>
+          </div>
+          <div class="skill-row">
+            <strong>Technical Support & Hardware</strong>
+            <div class="meter"><span style="--val: 70%"></span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Idiomas -->
+      <section class="card">
+        <h2>Idiomas</h2>
+        <div class="lang"><strong>Español</strong><small>Nativo / Bilingüe</small></div>
+        <div class="meter" style="margin:6px 0 12px"><span style="--val:98%"></span></div>
+
+        <div class="lang"><strong>Inglés</strong><small>Competencia profesional</small></div>
+        <div class="meter" style="margin:6px 0 12px"><span style="--val:85%"></span></div>
+
+        <div class="lang"><strong>Alemán</strong><small>Básico</small></div>
+        <div class="meter"><span style="--val:35%"></span></div>
+      </section>
+
+      <!-- Contacto -->
+      <section id="contacto" class="card">
+        <h2>Contacto</h2>
+        <p>¿Colaboramos? Escríbeme para proyectos de investigación educativa, análisis de procesos o tutorías.</p>
+        <p class="contact">
+          <a href="mailto:youremail@example.com">youremail@example.com</a>
+        </p>
+      </section>
+    </div>
+
+    <footer>
+      © <span id="y"></span> Johan Jiménez · Hecho con HTML + CSS · <span class="badge" title="Accesible">A11y</span>
+    </footer>
   </div>
 
-  <div class="section">
-    <h2>Projects</h2>
-    <ul>
-      <li>Fundamentos de la Investigación IAP (ANEIAP Project)</li>
-      <li>Comité 30 años (Financial Coordinator, ANEIAP)</li>
-      <li>Influence of Service Learning applied to English courses (CEDU)</li>
-      <li>Precalculus Tutoring Program (CREE)</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>Contact</h2>
-    <p class="contact-links">
-      <a href="https://www.linkedin.com/in/johan-jim%C3%A9nez-067257374/" target="_blank">LinkedIn</a>
-      <a href="https://github.com/johandj" target="_blank">GitHub</a>
-      <a href="mailto:youremail@example.com">Email</a>
-    </p>
-  </div>
+  <script>
+    // Modo oscuro
+    const root = document.documentElement;
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const stored = localStorage.getItem('theme');
+    if ((stored === 'dark') || (!stored && prefersDark)) {
+      root.classList.add('dark');
+    }
+    document.getElementById('toggle').addEventListener('click', () => {
+      root.classList.toggle('dark');
+      localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+    });
+    // Año en footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+
