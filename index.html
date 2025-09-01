@@ -90,6 +90,9 @@
     .list { margin: 0; padding-left: 18px }
 
     footer { color: var(--muted); text-align: center; font-size: 13px; margin: 24px 0 8px }
+    
+    /* Estilos para el cambio de idioma */
+    .hidden { display: none !important; }
   </style>
 </head>
 <body>
@@ -97,66 +100,138 @@
     <header class="hero">
       <div class="avatar" aria-hidden="true">JJ</div>
       <div class="title">
-        <h1>Johan Jiménez</h1>
-        <p class="subtitle">Est. Ingeniería Industrial · Asistente de Investigación · Tutor Par</p>
+        <h1>
+          <span class="lang-es hidden">Johan Jiménez</span>
+          <span class="lang-en">Johan Jiménez</span>
+        </h1>
+        <p class="subtitle">
+          <span class="lang-es hidden">Est. Ingeniería Industrial · Asistente de Investigación · Tutor Par</span>
+          <span class="lang-en">Industrial Engineering Student · Research Assistant · Peer Tutor</span>
+        </p>
         <p class="contact">
           <a href="https://www.linkedin.com/in/johan-jim%C3%A9nez-067257374/" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://github.com/StudentJohanD/johandj.github.io" target="_blank" rel="noopener">GitHub</a>
         </p>
       </div>
       <div class="actions">
-        <button class="btn" id="toggle">🌗 Modo</button>
-        <a class="btn primary" href="#contacto">Contacto</a>
+        <button class="btn" id="toggle-theme">🌗</button>
+        <button class="btn" id="toggle-lang">🇬🇧/🇪🇸</button>
+        <a class="btn primary" href="#contacto">
+          <span class="lang-es hidden">Contacto</span>
+          <span class="lang-en">Contact</span>
+        </a>
       </div>
     </header>
 
     <div class="grid">
       <!-- Columna izquierda -->
       <section class="card">
-        <h2>Sobre mí</h2>
+        <h2>
+          <span class="lang-es hidden">Sobre mí</span>
+          <span class="lang-en">About Me</span>
+        </h2>
         <p>
-          Actualmente curso el <strong>pregrado en Ingeniería Industrial</strong> (Universidad del Norte, 2023–2028). Me interesan la mejora de procesos, la logística y la toma de decisiones basada en datos. Complemento mi formación con docencia entre pares y apoyo a investigación.
+          <span class="lang-es hidden">Actualmente curso el <strong>pregrado en Ingeniería Industrial</strong> (Universidad del Norte, 2023–2028). Me interesan la mejora de procesos, la logística y la toma de decisiones basada en datos. Complemento mi formación con docencia entre pares y apoyo a investigación.</span>
+          <span class="lang-en">I am currently pursuing a <strong>Bachelor's degree in Industrial Engineering</strong> (Universidad del Norte, 2023–2028). I am interested in process improvement, logistics, and data-driven decision making. I complement my education with peer teaching and research support.</span>
         </p>
         <div class="chips" aria-label="fortalezas">
-          <span class="chip">Análisis de Datos</span>
-          <span class="chip">Gestión de Operaciones</span>
-          <span class="chip">Mejora Continua</span>
-          <span class="chip">Liderazgo</span>
-          <span class="chip">Apoyo a Investigación</span>
-          <span class="chip">Tutoría Académica</span>
+          <span class="chip">
+            <span class="lang-es hidden">Análisis de Datos</span>
+            <span class="lang-en">Data Analysis</span>
+          </span>
+          <span class="chip">
+            <span class="lang-es hidden">Gestión de Operaciones</span>
+            <span class="lang-en">Operations Management</span>
+          </span>
+          <span class="chip">
+            <span class="lang-es hidden">Mejora Continua</span>
+            <span class="lang-en">Continuous Improvement</span>
+          </span>
+          <span class="chip">
+            <span class="lang-es hidden">Liderazgo</span>
+            <span class="lang-en">Leadership</span>
+          </span>
+          <span class="chip">
+            <span class="lang-es hidden">Apoyo a Investigación</span>
+            <span class="lang-en">Research Support</span>
+          </span>
+          <span class="chip">
+            <span class="lang-es hidden">Tutoría Académica</span>
+            <span class="lang-en">Academic Tutoring</span>
+          </span>
         </div>
       </section>
 
       <section class="card">
-        <h2>Proyectos</h2>
+        <h2>
+          <span class="lang-es hidden">Proyectos</span>
+          <span class="lang-en">Projects</span>
+        </h2>
         <ul class="list">
-          <li>Fundamentos de la Investigación IAP – ANEIAP</li>
-          <li>Comité 30 años – Coordinación financiera (ANEIAP)</li>
-          <li>Service Learning aplicado a cursos de inglés – CEDU</li>
-          <li>Programa de Tutorías de Precálculo – CREE</li>
+          <li>
+            <span class="lang-es hidden">Fundamentos de la Investigación IAP – ANEIAP</span>
+            <span class="lang-en">Research Fundamentals IAP – ANEIAP</span>
+          </li>
+          <li>
+            <span class="lang-es hidden">Comité 30 años – Coordinación financiera (ANEIAP)</span>
+            <span class="lang-en">30th Anniversary Committee – Financial Coordination (ANEIAP)</span>
+          </li>
+          <li>
+            <span class="lang-es hidden">Service Learning aplicado a cursos de inglés – CEDU</span>
+            <span class="lang-en">Service Learning applied to English courses – CEDU</span>
+          </li>
+          <li>
+            <span class="lang-es hidden">Programa de Tutorías de Precálculo – CREE</span>
+            <span class="lang-en">Precalculus Tutoring Program – CREE</span>
+          </li>
         </ul>
       </section>
 
       <!-- Educación -->
       <section class="card" aria-labelledby="edu">
-        <h2 id="edu">Educación</h2>
+        <h2 id="edu">
+          <span class="lang-es hidden">Educación</span>
+          <span class="lang-en">Education</span>
+        </h2>
         <div class="timeline">
           <article class="edu-item">
             <div class="logo uninorte" title="Universidad del Norte">U<span aria-hidden="true"></span></div>
             <div>
               <div class="item-head">
-                <span class="item-title">Universidad del Norte</span>
-                <span class="badge">BE · Ingeniería Industrial</span>
-                <span class="item-meta">Ene 2023 – Mar 2028 · En curso</span>
+                <span class="item-title">
+                  <span class="lang-es hidden">Universidad del Norte</span>
+                  <span class="lang-en">Universidad del Norte</span>
+                </span>
+                <span class="badge">
+                  <span class="lang-es hidden">BE · Ingeniería Industrial</span>
+                  <span class="lang-en">BE · Industrial Engineering</span>
+                </span>
+                <span class="item-meta">
+                  <span class="lang-es hidden">Ene 2023 – Mar 2028 · En curso</span>
+                  <span class="lang-en">Jan 2023 – Mar 2028 · In progress</span>
+                </span>
               </div>
               <p>
-                Enfoque en gestión de operaciones, logística, optimización de procesos y decisiones basadas en datos. Participación en investigación académica, evaluación entre pares y grupos estudiantiles, fortaleciendo liderazgo, organización y trabajo en equipo.
+                <span class="lang-es hidden">Enfoque en gestión de operaciones, logística, optimización de procesos y decisiones basadas en datos. Participación en investigación académica, evaluación entre pares y grupos estudiantiles, fortaleciendo liderazgo, organización y trabajo en equipo.</span>
+                <span class="lang-en">Focus on operations management, logistics, process optimization, and data-driven decisions. Participation in academic research, peer evaluation, and student groups, strengthening leadership, organization, and teamwork.</span>
               </p>
               <div class="chips">
-                <span class="chip">CEDU · Asistente de investigación</span>
-                <span class="chip">CREE · Tutor par</span>
-                <span class="chip">Bourbaki · Finanzas</span>
-                <span class="chip">ANEIAP · Proyectos & eventos</span>
+                <span class="chip">
+                  <span class="lang-es hidden">CEDU · Asistente de investigación</span>
+                  <span class="lang-en">CEDU · Research Assistant</span>
+                </span>
+                <span class="chip">
+                  <span class="lang-es hidden">CREE · Tutor par</span>
+                  <span class="lang-en">CREE · Peer Tutor</span>
+                </span>
+                <span class="chip">
+                  <span class="lang-es hidden">Bourbaki · Finanzas</span>
+                  <span class="lang-en">Bourbaki · Finance</span>
+                </span>
+                <span class="chip">
+                  <span class="lang-es hidden">ANEIAP · Proyectos & eventos</span>
+                  <span class="lang-en">ANEIAP · Projects & events</span>
+                </span>
               </div>
             </div>
           </article>
@@ -165,17 +240,33 @@
             <div class="logo sena" title="SENA">S</div>
             <div>
               <div class="item-head">
-                <span class="item-title">Servicio Nacional de Aprendizaje (SENA)</span>
-                <span class="badge">Técnico · Sistemas</span>
+                <span class="item-title">
+                  <span class="lang-es hidden">Servicio Nacional de Aprendizaje (SENA)</span>
+                  <span class="lang-en">National Learning Service (SENA)</span>
+                </span>
+                <span class="badge">
+                  <span class="lang-es hidden">Técnico · Sistemas</span>
+                  <span class="lang-en">Technical · Systems</span>
+                </span>
                 <span class="item-meta">Mar 2021 – Dic 2022</span>
               </div>
               <p>
-                Formación técnica en hardware, software, redes y soporte TI. Desarrollé atención al detalle, pensamiento analítico y habilidades prácticas en tecnología.
+                <span class="lang-es hidden">Formación técnica en hardware, software, redes y soporte TI. Desarrollé atención al detalle, pensamiento analítico y habilidades prácticas en tecnología.</span>
+                <span class="lang-en">Technical training in hardware, software, networks, and IT support. Developed attention to detail, analytical thinking, and practical technology skills.</span>
               </p>
               <div class="chips">
-                <span class="chip">Soporte Técnico</span>
-                <span class="chip">Hardware & Redes</span>
-                <span class="chip">Solución de problemas</span>
+                <span class="chip">
+                  <span class="lang-es hidden">Soporte Técnico</span>
+                  <span class="lang-en">Technical Support</span>
+                </span>
+                <span class="chip">
+                  <span class="lang-es hidden">Hardware & Redes</span>
+                  <span class="lang-en">Hardware & Networks</span>
+                </span>
+                <span class="chip">
+                  <span class="lang-es hidden">Solución de problemas</span>
+                  <span class="lang-en">Problem Solving</span>
+                </span>
               </div>
             </div>
           </article>
@@ -184,17 +275,33 @@
             <div class="logo comba" title="Centro de Formación Comfamiliar Atlántico">C</div>
             <div>
               <div class="item-head">
-                <span class="item-title">Centro de Formación Combarranquilla</span>
-                <span class="badge">Certificado · Asistencia Financiera y Contable</span>
+                <span class="item-title">
+                  <span class="lang-es hidden">Centro de Formación Combarranquilla</span>
+                  <span class="lang-en">Combarranquilla Training Center</span>
+                </span>
+                <span class="badge">
+                  <span class="lang-es hidden">Certificado · Asistencia Financiera y Contable</span>
+                  <span class="lang-en">Certificate · Financial and Accounting Assistance</span>
+                </span>
                 <span class="item-meta">Mar 2021 – May 2023</span>
               </div>
               <p>
-                Entrenamiento en contabilidad, reportes financieros, nómina y herramientas administrativas aplicadas a la toma de decisiones.
+                <span class="lang-es hidden">Entrenamiento en contabilidad, reportes financieros, nómina y herramientas administrativas aplicadas a la toma de decisiones.</span>
+                <span class="lang-en">Training in accounting, financial reports, payroll, and administrative tools applied to decision making.</span>
               </p>
               <div class="chips">
-                <span class="chip">Contabilidad</span>
-                <span class="chip">Reportes & Nómina</span>
-                <span class="chip">Gestión Administrativa</span>
+                <span class="chip">
+                  <span class="lang-es hidden">Contabilidad</span>
+                  <span class="lang-en">Accounting</span>
+                </span>
+                <span class="chip">
+                  <span class="lang-es hidden">Reportes & Nómina</span>
+                  <span class="lang-en">Reports & Payroll</span>
+                </span>
+                <span class="chip">
+                  <span class="lang-es hidden">Gestión Administrativa</span>
+                  <span class="lang-en">Administrative Management</span>
+                </span>
               </div>
             </div>
           </article>
@@ -203,26 +310,65 @@
 
       <!-- Licencias y certificaciones -->
       <section class="card">
-        <h2>Licencias & Certificaciones</h2>
+        <h2>
+          <span class="lang-es hidden">Licencias & Certificaciones</span>
+          <span class="lang-en">Licenses & Certifications</span>
+        </h2>
         <ul class="list">
-          <li><strong>Gestión de SG-SST</strong> – SENA (Abr 2022)
+          <li>
+            <strong>
+              <span class="lang-es hidden">Gestión de SG-SST</span>
+              <span class="lang-en">SG-SST Management</span>
+            </strong> – SENA (Abr 2022)
             <div class="chips" style="margin-top:6px">
-              <span class="chip">Seguridad Ocupacional</span>
-              <span class="chip">Gestión del Riesgo</span>
-              <span class="chip">SG-SST</span>
+              <span class="chip">
+                <span class="lang-es hidden">Seguridad Ocupacional</span>
+                <span class="lang-en">Occupational Safety</span>
+              </span>
+              <span class="chip">
+                <span class="lang-es hidden">Gestión del Riesgo</span>
+                <span class="lang-en">Risk Management</span>
+              </span>
+              <span class="chip">
+                <span class="lang-es hidden">SG-SST</span>
+                <span class="lang-en">SG-SST</span>
+              </span>
             </div>
           </li>
-          <li><strong>International Tutor Training Program Certification</strong> – CRLA (Sep 2023 – Dic 2024)
+          <li>
+            <strong>
+              <span class="lang-es hidden">International Tutor Training Program Certification</span>
+              <span class="lang-en">International Tutor Training Program Certification</span>
+            </strong> – CRLA (Sep 2023 – Dic 2024)
             <div class="chips" style="margin-top:6px">
-              <span class="chip">Tutoría</span>
-              <span class="chip">Comunicación</span>
-              <span class="chip">Resolución Creativa de Problemas</span>
+              <span class="chip">
+                <span class="lang-es hidden">Tutoría</span>
+                <span class="lang-en">Tutoring</span>
+              </span>
+              <span class="chip">
+                <span class="lang-es hidden">Comunicación</span>
+                <span class="lang-en">Communication</span>
+              </span>
+              <span class="chip">
+                <span class="lang-es hidden">Resolución Creativa de Problemas</span>
+                <span class="lang-en">Creative Problem Solving</span>
+              </span>
             </div>
           </li>
-          <li><strong>Auditoría Interna de Calidad ISO 9001</strong> – SENA
+          <li>
+            <strong>
+              <span class="lang-es hidden">Auditoría Interna de Calidad ISO 9001</span>
+              <span class="lang-en">ISO 9001 Internal Quality Audit</span>
+            </strong> – SENA
             <div class="chips" style="margin-top:6px">
-              <span class="chip">Calidad</span>
-              <span class="chip">Mejora Continua</span>
+              <span class="chip">
+                <span class="lang-es hidden">Calidad</span>
+                <span class="lang-en">Quality</span>
+              </span>
+              <span class="chip">
+                <span class="lang-es hidden">Mejora Continua</span>
+                <span class="lang-en">Continuous Improvement</span>
+              </span>
             </div>
           </li>
         </ul>
@@ -230,17 +376,27 @@
 
       <!-- Voluntariado / Experiencia estudiantil -->
       <section class="card">
-        <h2>Voluntariado</h2>
+        <h2>
+          <span class="lang-es hidden">Voluntariado</span>
+          <span class="lang-en">Volunteering</span>
+        </h2>
         <div class="timeline">
           <article class="vol-item">
             <div class="logo uninorte">U</div>
             <div>
               <div class="item-head">
-                <span class="item-title">Tutor Par – CREE</span>
-                <span class="item-meta">Jul 2023 – Presente</span>
+                <span class="item-title">
+                  <span class="lang-es hidden">Tutor Par – CREE</span>
+                  <span class="lang-en">Peer Tutor – CREE</span>
+                </span>
+                <span class="item-meta">
+                  <span class="lang-es hidden">Jul 2023 – Presente</span>
+                  <span class="lang-en">Jul 2023 – Present</span>
+                </span>
               </div>
               <p>
-                Apoyo en matemáticas, precálculo y cálculo aplicado para estudiantes de la Escuela de Negocios, fortaleciendo pensamiento analítico y confianza mediante acompañamiento personalizado.
+                <span class="lang-es hidden">Apoyo en matemáticas, precálculo y cálculo aplicado para estudiantes de la Escuela de Negocios, fortaleciendo pensamiento analítico y confianza mediante acompañamiento personalizado.</span>
+                <span class="lang-en">Support in mathematics, precalculus, and applied calculus for Business School students, strengthening analytical thinking and confidence through personalized guidance.</span>
               </p>
             </div>
           </article>
@@ -248,11 +404,18 @@
             <div class="logo uninorte">U</div>
             <div>
               <div class="item-head">
-                <span class="item-title">Asistente de Investigación – CEDU</span>
-                <span class="item-meta">Dic 2024 – Presente</span>
+                <span class="item-title">
+                  <span class="lang-es hidden">Asistente de Investigación – CEDU</span>
+                  <span class="lang-en">Research Assistant – CEDU</span>
+                </span>
+                <span class="item-meta">
+                  <span class="lang-es hidden">Dic 2024 – Presente</span>
+                  <span class="lang-en">Dec 2024 – Present</span>
+                </span>
               </div>
               <p>
-                Soporte a proyectos del Centro para la Enseñanza y el Aprendizaje: diseño de investigación, análisis de datos y redacción académica orientada a innovación educativa.
+                <span class="lang-es hidden">Soporte a proyectos del Centro para la Enseñanza y el Aprendizaje: diseño de investigación, análisis de datos y redacción académica orientada a innovación educativa.</span>
+                <span class="lang-en">Support for projects at the Center for Teaching and Learning: research design, data analysis, and academic writing focused on educational innovation.</span>
               </p>
             </div>
           </article>
@@ -260,11 +423,18 @@
             <div class="logo" style="background:#0f766e">A</div>
             <div>
               <div class="item-head">
-                <span class="item-title">Líder de Proyecto – ANEIAP</span>
-                <span class="item-meta">Mar 2025 – Presente</span>
+                <span class="item-title">
+                  <span class="lang-es hidden">Líder de Proyecto – ANEIAP</span>
+                  <span class="lang-en">Project Leader – ANEIAP</span>
+                </span>
+                <span class="item-meta">
+                  <span class="lang-es hidden">Mar 2025 – Presente</span>
+                  <span class="lang-en">Mar 2025 – Present</span>
+                </span>
               </div>
               <p>
-                Coordinación de proyectos académicos y eventos para el desarrollo estudiantil en ingeniería industrial: planificación, presupuestos y trabajo colaborativo.
+                <span class="lang-es hidden">Coordinación de proyectos académicos y eventos para el desarrollo estudiantil en ingeniería industrial: planificación, presupuestos y trabajo colaborativo.</span>
+                <span class="lang-en">Coordination of academic projects and events for student development in industrial engineering: planning, budgeting, and collaborative work.</span>
               </p>
             </div>
           </article>
@@ -272,11 +442,18 @@
             <div class="logo" style="background:#7c3aed">B</div>
             <div>
               <div class="item-head">
-                <span class="item-title">Coordinador Financiero – Grupo Bourbaki</span>
-                <span class="item-meta">Feb 2025 – Presente</span>
+                <span class="item-title">
+                  <span class="lang-es hidden">Coordinador Financiero – Grupo Bourbaki</span>
+                  <span class="lang-en">Financial Coordinator – Bourbaki Group</span>
+                </span>
+                <span class="item-meta">
+                  <span class="lang-es hidden">Feb 2025 – Presente</span>
+                  <span class="lang-en">Feb 2025 – Present</span>
+                </span>
               </div>
               <p>
-                Gestión de recursos, apoyo a organización de eventos y promoción de iniciativas académicas en un semillero de matemáticas.
+                <span class="lang-es hidden">Gestión de recursos, apoyo a organización de eventos y promoción de iniciativas académicas en un semillero de matemáticas.</span>
+                <span class="lang-en">Resource management, support for event organization, and promotion of academic initiatives in a mathematics research group.</span>
               </p>
             </div>
           </article>
@@ -285,7 +462,10 @@
 
       <!-- Habilidades -->
       <section class="card">
-        <h2>Habilidades</h2>
+        <h2>
+          <span class="lang-es hidden">Habilidades</span>
+          <span class="lang-en">Skills</span>
+        </h2>
         <div class="skills-grid">
           <div class="skill-row">
             <strong>Data Analysis</strong>
@@ -328,21 +508,57 @@
 
       <!-- Idiomas -->
       <section class="card">
-        <h2>Idiomas</h2>
-        <div class="lang"><strong>Español</strong><small>Nativo / Bilingüe</small></div>
+        <h2>
+          <span class="lang-es hidden">Idiomas</span>
+          <span class="lang-en">Languages</span>
+        </h2>
+        <div class="lang">
+          <strong>
+            <span class="lang-es hidden">Español</span>
+            <span class="lang-en">Spanish</span>
+          </strong>
+          <small>
+            <span class="lang-es hidden">Nativo / Bilingüe</span>
+            <span class="lang-en">Native / Bilingual</span>
+          </small>
+        </div>
         <div class="meter" style="margin:6px 0 12px"><span style="--val:100%"></span></div>
 
-        <div class="lang"><strong>Inglés</strong><small>Competencia profesional</small></div>
+        <div class="lang">
+          <strong>
+            <span class="lang-es hidden">Inglés</span>
+            <span class="lang-en">English</span>
+          </strong>
+          <small>
+            <span class="lang-es hidden">Competencia profesional</span>
+            <span class="lang-en">Professional proficiency</span>
+          </small>
+        </div>
         <div class="meter" style="margin:6px 0 12px"><span style="--val:85%"></span></div>
 
-        <div class="lang"><strong>Alemán</strong><small>Básico</small></div>
+        <div class="lang">
+          <strong>
+            <span class="lang-es hidden">Alemán</span>
+            <span class="lang-en">German</span>
+          </strong>
+          <small>
+            <span class="lang-es hidden">Básico</span>
+            <span class="lang-en">Basic</span>
+          </small>
+        </div>
         <div class="meter"><span style="--val:35%"></span></div>
       </section>
 
       <!-- Contacto -->
       <section id="contacto" class="card">
-        <h2>Contacto</h2>
-        <p>¿Colaboramos? Escríbeme para proyectos de investigación educativa, análisis de procesos o tutorías.</p>
+        <h2>
+          <span class="lang-es hidden">Contacto</span>
+          <span class="lang-en">Contact</span>
+        </h2>
+        <p>
+          <span class="lang-es hidden">¿Colaboramos? Escríbeme para proyectos de investigación educativa, análisis de procesos o tutorías.</span>
+          <span class="lang-en">Let's collaborate? Contact me for educational research projects, process analysis, or tutoring.</span>
+        </p>
         <p class="contact">
           <a href="mailto:johandj@uninorte.edu.co">johandj@uninorte.edu.co</a>
         </p>
@@ -350,7 +566,8 @@
     </div>
 
     <footer>
-      © <span id="y"></span> Johan Jiménez · Hecho con HTML + CSS · <span class="badge" title="Accesible">A11y</span>
+      <span class="lang-es hidden">© <span id="y"></span> Johan Jiménez · Hecho con HTML + CSS · <span class="badge" title="Accesible">A11y</span></span>
+      <span class="lang-en">© <span id="y-en"></span> Johan Jiménez · Made with HTML + CSS · <span class="badge" title="Accessible">A11y</span></span>
     </footer>
   </div>
 
@@ -358,17 +575,51 @@
     // Modo oscuro
     const root = document.documentElement;
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const stored = localStorage.getItem('theme');
-    if ((stored === 'dark') || (!stored && prefersDark)) {
+    const storedTheme = localStorage.getItem('theme');
+    if ((storedTheme === 'dark') || (!storedTheme && prefersDark)) {
       root.classList.add('dark');
     }
-    document.getElementById('toggle').addEventListener('click', () => {
+    document.getElementById('toggle-theme').addEventListener('click', () => {
       root.classList.toggle('dark');
       localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
     });
+    
+    // Cambio de idioma
+    const storedLang = localStorage.getItem('language') || 'es';
+    const toggleLangButton = document.getElementById('toggle-lang');
+    
+    function setLanguage(lang) {
+      const esElements = document.querySelectorAll('.lang-es hidden');
+      const enElements = document.querySelectorAll('.lang-en');
+      
+      if (lang === 'en') {
+        esElements.forEach(el => el.classList.add('hidden'));
+        enElements.forEach(el => el.classList.remove('hidden'));
+        toggleLangButton.textContent = '🇪🇸/🇬🇧';
+        document.documentElement.lang = 'en';
+      } else {
+        esElements.forEach(el => el.classList.remove('hidden'));
+        enElements.forEach(el => el.classList.add('hidden'));
+        toggleLangButton.textContent = '🇬🇧/🇪🇸';
+        document.documentElement.lang = 'es';
+      }
+      
+      localStorage.setItem('language', lang);
+    }
+    
+    // Inicializar idioma
+    setLanguage(storedLang);
+    
+    // Alternar idioma al hacer clic
+    toggleLangButton.addEventListener('click', () => {
+      const currentLang = localStorage.getItem('language') || 'es';
+      setLanguage(currentLang === 'es' ? 'en' : 'es');
+    });
+    
     // Año en footer
-    document.getElementById('y').textContent = new Date().getFullYear();
+    const currentYear = new Date().getFullYear();
+    document.getElementById('y').textContent = currentYear;
+    document.getElementById('y-en').textContent = currentYear;
   </script>
 </body>
 </html>
-
